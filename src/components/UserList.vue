@@ -23,7 +23,7 @@
 					</td>
 					<td class="px-6 py-4">{{ user.email }}</td>
 					<td class="px-4 py-2 text-right">
-						<button @click="" class="font-medium text-red-600 dark:text-red-500 hover:underline mr-4">
+						<button @click="deleteUser(user.id)" class="font-medium text-red-600 dark:text-red-500 hover:underline mr-4">
 							<i class="pi pi-trash"></i>
 						</button>
 						<button @click="editUser(user)"
@@ -112,6 +112,16 @@ export default {
 				})
 				.catch(error => {
 					this.showToast('Failed to add user.', 'error');
+				});
+		},
+		deleteUser(id) {
+			axios.delete(`http://127.0.0.1:8000/api/users/${id}`)
+				.then(() => {
+					this.showToast('User deleted successfully!', 'success');
+					this.fetchUsers();
+				})
+				.catch(() => {
+					this.showToast('Failed to delete user.', 'error');
 				});
 		},
 		resetNewUser() {
