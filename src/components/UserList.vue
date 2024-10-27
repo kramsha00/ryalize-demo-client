@@ -23,7 +23,8 @@
 					</td>
 					<td class="px-6 py-4">{{ user.email }}</td>
 					<td class="px-4 py-2 text-right">
-						<button @click="deleteUser(user.id)" class="font-medium text-red-600 dark:text-red-500 hover:underline mr-4">
+						<button @click="deleteUser(user.id)"
+								class="font-medium text-red-600 dark:text-red-500 hover:underline mr-4">
 							<i class="pi pi-trash"></i>
 						</button>
 						<button @click="editUser(user)"
@@ -110,7 +111,7 @@ export default {
 					this.resetNewUser();
 					this.fetchUsers();
 				})
-				.catch(error => {
+				.catch(() => {
 					this.showToast('Failed to add user.', 'error');
 				});
 		},
@@ -146,12 +147,4 @@ export default {
 </script>
 
 <style scoped>
-/* Toast Styling */
-.bg-green-500 {
-	background-color: #38a169;
-}
-
-.bg-red-500 {
-	background-color: #e53e3e;
-}
 </style>
