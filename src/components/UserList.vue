@@ -94,7 +94,7 @@ export default {
 	},
 	methods: {
 		fetchUsers() {
-			axios.get('http://127.0.0.1:8000/api/users')
+			axios.get(`${import.meta.env.VITE_API_BASE_URL}/users`)
 				.then(response => {
 					this.users = response.data;
 				});
@@ -104,7 +104,7 @@ export default {
 			this.isModalOpen = true;
 		},
 		addUser() {
-			axios.post('http://127.0.0.1:8000/api/users', this.newUser)
+			axios.post(`${import.meta.env.VITE_API_BASE_URL}/users`, this.newUser)
 				.then(response => {
 					this.users.push(response.data);
 					this.showToast('User added successfully!', 'success');
@@ -116,7 +116,7 @@ export default {
 				});
 		},
 		deleteUser(id) {
-			axios.delete(`http://127.0.0.1:8000/api/users/${id}`)
+			axios.delete(`${import.meta.env.VITE_API_BASE_URL}/users/${id}`)
 				.then(() => {
 					this.showToast('User deleted successfully!', 'success');
 					this.fetchUsers();

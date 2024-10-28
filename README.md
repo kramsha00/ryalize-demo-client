@@ -1,41 +1,81 @@
-# client
+# Client
 
-This template should help get you started developing with Vue 3 in Vite.
+A Vue.js client application styled with Tailwind CSS.
 
-## Recommended IDE Setup
+## Table of Contents
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Environment Variables](#environment-variables)
+- [API Documentation](#api-documentation)
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Getting Started
 
-## Project Setup
+### Prerequisites
 
-```sh
+- [Node.js](https://nodejs.org/) (version 14 or later recommended)
+- [Vue CLI](https://cli.vuejs.org/) (if you haven't already installed it globally)
+
+### Installation
+
+1. **Clone the repository**:
+```bash
+git clone <repository-url>
+cd project-name
+```
+2. **Install dependencies:**
+```bash
 npm install
 ```
 
-### Format code
+3. **Run the development server:**
 
-```sh
-npm run format
-````
-
-### Compile and Hot-Reload for Development
-
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+The app should now be running locally at http://localhost:5173/.
 
-```sh
-npm run build
+### Project Structure
+
+This project follows a common Vue.js structure with Tailwind CSS for styling.
+
+```
+project-root
+├── public               # Static files, favicon, etc.
+├── src
+│   ├── assets           # Global and Tailwind CSS configuration files and logo files
+│   ├── components       # Reusable Vue components
+│   ├── router           # Vue Router configuration
+│   ├── App.vue          # Root component
+│   └── main.js          # Application entry point
+├── tailwind.config.js   # Tailwind CSS configuration
+└── package.json         # Project dependencies and scripts
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Environment Variables
 
-```sh
-npm run lint
+To run this project, you need to provide a .env file in the project root. Here’s an example of what it should contain:
+
+### API base URL for making backend requests
+
+      VITE_API_BASE_URL=http://127.0.0.1:8000/api
+
+### API Documentation
+
+This project communicates with a backend API for data. Below are the primary endpoints used within the app:
 ```
+Endpoint	     Method	  Description
+/api/users/	     GET	  Fetch list of users
+/api/users/	     POST	  Add a new user
+/api/users/{id}	     PUT	  Update a specific user
+/api/users/{id}	     DELETE	  Delete a specific user
+/api/transactions/   GET	  Fetch transactions with filters
+/api/locations/	     GET	  Fetch list of locations
+```
+
+### Styling and Customization
+
+This project uses Tailwind CSS for styling, with custom configurations located in tailwind.config.js.

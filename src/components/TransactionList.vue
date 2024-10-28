@@ -128,7 +128,7 @@ export default {
 	methods: {
 		async fetchUsers() {
 			try {
-				const response = await axios.get('http://127.0.0.1:8000/api/users/');
+				const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users`);
 				this.users = response.data;
 			} catch (error) {
 				console.error('Error fetching users:', error);
@@ -136,7 +136,7 @@ export default {
 		},
 		async fetchLocations() {
 			try {
-				const response = await axios.get('http://127.0.0.1:8000/api/locations/');
+				const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/locations`);
 				this.locations = response.data;
 			} catch (error) {
 				console.error('Error fetching locations:', error);
@@ -144,7 +144,7 @@ export default {
 		},
 		async fetchTransactions() {
 			try {
-				const response = await axios.get('http://127.0.0.1:8000/api/transactions/', {
+				const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/transactions`, {
 					params: {
 						userId: this.filters.userId,
 						locationId: this.filters.locationId,
